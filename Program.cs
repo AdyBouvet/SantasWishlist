@@ -12,8 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(builder.Configuration);
 
-builder.Services.AddDbContext<CommonDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionString"]));
-
+builder.Services.AddDbContext<CommonDbContext>(options =>
+{
+    options.UseSqlServer("Server=santas-sql-server.database.windows.net,1433;Database=santas-database;");
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
