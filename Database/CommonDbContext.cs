@@ -2,6 +2,7 @@
 using Azure.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using SantasWishlist.Models;
 
 namespace SantasWishlist.Database
 {
@@ -15,11 +16,11 @@ namespace SantasWishlist.Database
                 new TokenRequestContext(new[] { "https://database.windows.net/.default" })).Token;
         }
 
-        // public DbSet<ObjectType> TableName { get; set; }
+        public DbSet<Person> Person { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<Person>().HasKey("Id");
         }
     }
 }

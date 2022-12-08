@@ -36,7 +36,7 @@ Bad <= 33%
 Id string (varchar(32))
 Name string (varchar(100))
 Country string (varchar(100))
-KindnessRange (int)
+KindnessRating int (int)
 
 ### Gift
 Id string (varchar(32))
