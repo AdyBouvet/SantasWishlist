@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
+using SantasWishlist.Converters;
 using SantasWishlist.Database;
 using SantasWishlist.Repositories;
+using SantasWishlist.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,8 @@ builder.Services.AddDbContext<CommonDbContext>(options =>
 });
 
 builder.Services.AddTransient<PersonRepository>();
+builder.Services.AddTransient<PersonService>();
+builder.Services.AddTransient<PersonConverter>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -28,7 +28,6 @@ namespace SantasWishlist.Repositories
         public Person Read(string id) => _context.Person.FirstOrDefault(x => x.Id == id);
 
         public List<Person> ReadAll() => _context.Person.ToList();
-        
 
         public Person Update(Person entity)
         {
